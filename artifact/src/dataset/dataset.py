@@ -54,7 +54,9 @@ class Dataset:
 
     @property
     def extracted_path(self) -> Path:
-        """Returns the path to the extracted dataset directory."""
+        """
+        Returns the path to the extracted dataset directory.
+        """
         return self.root / self.extracted_dir
 
     def prepare(self) -> Path:
@@ -115,7 +117,9 @@ class Dataset:
             raise RuntimeError(f"{self.name} archive checksum mismatch.")
 
     def _extract(self) -> None:
-        """Extracts the dataset archive into the dataset root directory."""
+        """
+        Extracts the dataset archive into the dataset root directory.
+        """
         print(f"Extracting {self.name}…")
         with tarfile.open(self.archive_path, "r:gz") as tar:
             tar.extractall(self.root)
