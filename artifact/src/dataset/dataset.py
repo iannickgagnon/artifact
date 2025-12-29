@@ -145,10 +145,11 @@ class Dataset:
             str: Hexadecimal MD5 checksum of the file.
         """
         hash_md5 = hashlib.md5()
-
+    
         # Read file in chunks for memory efficiency
+        CHUNK_SIZE = 8192
         with open(path, "rb") as f:
-            for chunk in iter(lambda: f.read(8192), b""):
+            for chunk in iter(lambda: f.read(CHUNK_SIZE), b""):
                 hash_md5.update(chunk)
 
         return hash_md5.hexdigest()
