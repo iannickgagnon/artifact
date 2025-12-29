@@ -47,7 +47,9 @@ class Dataset:
 
     @property
     def archive_path(self) -> Path:
-        """Returns the path to the downloaded dataset archive."""
+        """
+        Returns the path to the downloaded dataset archive.
+        """
         return self.root / self.archive_name
 
     @property
@@ -86,7 +88,9 @@ class Dataset:
         return self.extracted_path
 
     def _download(self) -> None:
-        """Downloads the dataset archive from its source URL."""
+        """
+        Downloads the dataset archive from its source URL.
+        """
         print(f"Downloading {self.name} → {self.archive_path}")
 
         response = requests.get(self.url, stream=True)
